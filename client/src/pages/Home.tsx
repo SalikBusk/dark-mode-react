@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <div>
         <Container>
-            <Card image={background} alt="" big/>
+            <Card image={background} alt=""/>
         </Container>
     </div>
   )
