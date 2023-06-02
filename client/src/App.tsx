@@ -1,32 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import { Route, Routes } from 'react-router';
 import './App.css';
+import Layout from './Components/Layout';
+import Home from './pages/Home';
 
 function App() {
-  const [theme, setTheme] = useState('light');
-
-  const toggleTheme = () => {
-    if (theme === 'light') {
-      setTheme('dark');
-    } else {
-      setTheme('light');
-    }
-  };
-
-  useEffect(() => {
-    document.body.className = theme;
-  }, [theme]);
 
   return (
-    <div className={theme}>
-      <section className="w-full h-screen flex flex-col items-center justify-center">
-        <div
-          className={`p-3 rounded-full cursor-pointer ${theme === 'dark' ? "bg-[#fff]" : "bg-[#333]"}`}
-          onClick={toggleTheme}
-        >
-        </div>
-        <h1 className="text-5xl">Hello world</h1>
-      </section>
-    </div>
+    <Routes>
+      <Route path='/' element={<Layout/>}>
+        <Route index element={<Home/>}/>
+      </Route>
+    </Routes>
   );
 }
 
